@@ -46,5 +46,5 @@ $ npm run deploy
 ## Resources
 
 - [Getting started with WarpJS](https://warpjs.dev/docs/getting-started)
-[https://github.com/opencovid19-fr/](https://github.com/opencovid19-fr/)
+- [https://github.com/opencovid19-fr/](https://github.com/opencovid19-fr/)
 
