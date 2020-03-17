@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" type="image/png" href="/favicon-covid19-bilan.png" />
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -18,6 +19,7 @@
   html,
   body {
     height: 100%;
+    font-size: small;
   }
 
   body {
@@ -34,9 +36,13 @@
   <div id="WELCOME" class="welcomeBlock container-fluid h-100" style=" display: none;">
     <div class="row  align-middle align-items-center h-100">
       <div class="col-12 hidden-md-down" id="yellow">
-        <h1 class="display-4">Bienvenue sur Covid19Bilan.fr</h1>
-        <p class="lead">Nombre de cas Covid19 confirmés en France, par régions et par départements.
-        </p>
+        <!-- <p class="display-4">Bienvenue sur Covid19Bilan.fr</p> -->
+        <img style="width:100%" src="/logo-covid19-bilan.png">
+        <br>
+        <br>
+        <h1 class="lead">Nombre de cas Covid19 confirmés en France détaillés par régions.
+        </h1>
+        <br>
         <p class="lead">
           <button id="appWelcome" class="btn btn-primary btn-lg" type="button">Voir les statistiques
           </button>
@@ -57,8 +63,8 @@
         <div class="input-group-prepend" style="width:100%">
           <button id="appUpdateReg" style="width:50%" class="btn btn-primary" type="button">Region
           </button>&nbsp
-          <button id="appUpdateDep" style="width:50%" class="btn btn-primary" type="button">Département
-          </button>&nbsp
+          <!-- <button id="appUpdateDep" style="width:50%" class="btn btn-primary" type="button">Département
+          </button>&nbsp -->
           <button id="appUpdateFra" style="width:50%" class="btn btn-primary" type="button">
             France
           </button>

@@ -14,14 +14,14 @@ function processGitHub(data) {
   'warp +server -client'
 
   // raw
-  let dep = {};
+  // let dep = {};
   let reg = {};
   let fra = {};
   let com = {};
   let world = {};
 
   // processed
-  let pdep = {};
+  // let pdep = {};
   let preg = {};
   let pfra = {};
   let pworld = {};
@@ -29,10 +29,10 @@ function processGitHub(data) {
   for (let ii = 0; ii < data.length; ii++) {
     let d = data[ii];
     if (d.code.indexOf('DEP') !== -1) {
-      if (dep[d.code] === undefined) {
-        dep[d.code] = [];
-      }
-      dep[d.code].push(d);
+      // if (dep[d.code] === undefined) {
+      //   dep[d.code] = [];
+      // }
+      // dep[d.code].push(d);
       continue;
     }
     if (d.code.indexOf('REG') !== -1) {
@@ -66,8 +66,10 @@ function processGitHub(data) {
     console.log("ERROR - Splitting", d);
   }
 
-  let k = Object.keys(dep);
-  if (k.length > 96) console.log("WARNING - dep too big", k.length);
+  let k;
+
+  // k = Object.keys(dep);
+  // if (k.length > 96) console.log("WARNING - dep too big", k.length);
 
   k = Object.keys(reg);
   if (k.length > 18) console.log("WARNING - reg too big", k.length);
@@ -110,11 +112,11 @@ function processGitHub(data) {
     pfra[t.nom] = t
   }
 
-  k = Object.keys(dep);
-  for (let ii = 0; ii < k.length; ii++) {
-    t = process(dep[k[ii]])
-    pdep[t.nom] = t
-  }
+  // k = Object.keys(dep);
+  // for (let ii = 0; ii < k.length; ii++) {
+  //   t = process(dep[k[ii]])
+  //   pdep[t.nom] = t
+  // }
 
   k = Object.keys(reg);
   for (let ii = 0; ii < k.length; ii++) {
@@ -130,7 +132,7 @@ function processGitHub(data) {
 
   return ({
     reg: preg,
-    dep: pdep,
+    // dep: pdep,
     fra: pfra,
     world: pworld
   });
@@ -181,7 +183,7 @@ function dumpOne(type, key, one) {
 
 const regDump = async () => {
   appUpdateReg.classList.add("active");
-  appUpdateDep.classList.remove("active");
+  // appUpdateDep.classList.remove("active");
   appUpdateFra.classList.remove("active");
   //$('#etatTitle').html('Région');
   $('#etat').html('');
@@ -200,30 +202,30 @@ const regDump = async () => {
   $('#myspinner').hide();
 }
 
-const depDump = async () => {
-  appUpdateReg.classList.remove("active");
-  appUpdateDep.classList.add("active");
-  appUpdateFra.classList.remove("active");
+// const depDump = async () => {
+//   appUpdateReg.classList.remove("active");
+//   appUpdateDep.classList.add("active");
+//   appUpdateFra.classList.remove("active");
 
-  $('#etat').html('');
-  $('#myspinner').show();
-  let h = "";
-  let k = Object.keys(data.dep)
-    .sort(function order(key1, key2) {
-      if (key1 < key2) return -1;
-      else if (key1 > key2) return +1;
-      else return 0;
-    });
-  for (let ii = 0; ii < k.length; ii++) {
-    h += dumpOne('dep', k[ii], data.dep[k[ii]])
-  }
-  $('#etat').html(h);
-  $('#myspinner').hide();
-}
+//   $('#etat').html('');
+//   $('#myspinner').show();
+//   let h = "";
+//   let k = Object.keys(data.dep)
+//     .sort(function order(key1, key2) {
+//       if (key1 < key2) return -1;
+//       else if (key1 > key2) return +1;
+//       else return 0;
+//     });
+//   for (let ii = 0; ii < k.length; ii++) {
+//     h += dumpOne('dep', k[ii], data.dep[k[ii]])
+//   }
+//   $('#etat').html(h);
+//   $('#myspinner').hide();
+// }
 
 const fraDump = async () => {
   appUpdateReg.classList.remove("active");
-  appUpdateDep.classList.remove("active");
+  // appUpdateDep.classList.remove("active");
   appUpdateFra.classList.add("active");
 
   $('#etat').html('');
@@ -243,15 +245,15 @@ const fraDump = async () => {
 }
 
 const appUpdateReg = document.getElementById('appUpdateReg')
-const appUpdateDep = document.getElementById('appUpdateDep')
+// const appUpdateDep = document.getElementById('appUpdateDep')
 const appUpdateFra = document.getElementById('appUpdateFra')
 
 appUpdateReg.onclick = function () {
   regDump();
 };
-appUpdateDep.onclick = function () {
-  depDump();
-};
+// appUpdateDep.onclick = function () {
+//   depDump();
+// };
 appUpdateFra.onclick = function () {
   fraDump();
 };
@@ -280,10 +282,10 @@ function cellClickHandler(type, key) {
     x = data.reg[key];
     detailText = x.nom;
   }
-  if (type === "dep") {
-    x = data.dep[key]
-    detailText = x.nom;
-  }
+  // if (type === "dep") {
+  //   x = data.dep[key]
+  //   detailText = x.nom;
+  // }
   if (type === "fra") {
     x = data.fra[key]
     detailText = 'France';
