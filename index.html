@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-  <!-- Global site tag (gtag.js) - Google Analytics   -->
+  <!-- Global site tag (gtag.js) - Google Analytics  
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117302076-8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -18,9 +18,10 @@
 
     gtag('config', 'UA-117302076-8');
   </script>
+  -->
 
-
-  <script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script> -->
+  <script src="/frappe-charts.min.iife.js"></script>
 
   <title>Covid19Bilan.fr</title>
 </head>
@@ -44,6 +45,11 @@
 </style>
 
 <style>
+  .frappe-chart .x.axis .line-horizontal,
+  .frappe-chart .x.axis .line-horizontal text {
+    display: none;
+  }
+
   #chartdiv {
     width: 100%;
     height: 500px;
